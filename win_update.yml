@@ -5,7 +5,7 @@
 # https://docs.ansible.com/ansible/win_reboot_module.html
 
 - name:  Windows Update
-  hosts: MGMT
+  hosts: monitor
   gather_facts: false
   tasks:
     - name: Running Windows Update
