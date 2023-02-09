@@ -1,5 +1,5 @@
 ---
-- hosts: linux
+- hosts: centos
   gather_facts: no
   vars:
     version: 2
