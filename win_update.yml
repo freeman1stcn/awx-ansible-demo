@@ -19,4 +19,5 @@
     # reboot only if required
     - win_reboot:
       when: result.reboot_required
+      reboot_timeout: 8000
       
