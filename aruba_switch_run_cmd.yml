@@ -1,6 +1,6 @@
 ---
 - name: Show run command on aruba switch
-  hosts: aruba_switch
+  hosts: all
   gather_facts: no
 
   tasks:
