@@ -1,0 +1,8 @@
+---
+- name:  Windows Update
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check windows cpu usage
+      win_command: wmic cpu get loadpercentage
+      register: cpu_results
