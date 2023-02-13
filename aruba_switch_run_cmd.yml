@@ -1,15 +1,14 @@
 ---
 - name: Show run command on aruba switch
   hosts: all
-  gather_facts: no
-
+  gather_facts: false
   tasks:
   - name: Execute show run command
     aruba_command:
       commands:
         - show run
-    register: result
+    register: results
 
-  - name: Display the result
+  - name: Display the results
     debug:
-      var: result
+      var: results
