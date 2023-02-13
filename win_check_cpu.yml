@@ -6,5 +6,6 @@
     - name: Check windows cpu usage
       win_command: wmic cpu get loadpercentage
       register: cpu_results
-    - debug:
+    - name: get cpu results
+      debug:
       var: cpu_results
