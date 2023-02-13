@@ -8,4 +8,4 @@
       register: cpu_results
     - name: get cpu results
       debug:
-      var: cpu_results
+        var: cpu_results
