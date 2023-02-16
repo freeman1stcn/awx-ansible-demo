@@ -7,7 +7,7 @@
   - name: Execute show run command
     community.network.aruba_command:
       commands:
-        - show run
+        - show version
     register: results
 
   - name: Display the results
