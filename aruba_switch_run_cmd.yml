@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
   - name: Execute show run command
-    aruba_command:
+    community.network.aruba_command:
       commands:
         - show run
     register: results
