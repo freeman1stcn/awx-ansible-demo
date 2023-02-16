@@ -1,17 +1,14 @@
 ---
 - name: Show run command on aruba switch
   debugger: on_failed
-  collections:
-    - arubanetworks.aos_switch
   hosts: all
   gather_facts: false
+  roles: 
+    - role: arubanetworks.aoscx_role
   tasks:
-    - name: Create VLAN 33
-      arubaoss_vlan:
-        vlan_id: 33
-        name: "vlan33"
-        config: "create"
-        command: config_vlan
+    - name: Execute show run on the switch
+      aoscx_command:
+        commands: ['show run']
 
   - name: Display the results
     debug:
