@@ -6,10 +6,12 @@
   hosts: all
   gather_facts: false
   tasks:
-  - name: Execute show run command
-      arubaoss_anycli:
-        command: "show running-config"
-    register: results
+    - name: Create VLAN 33
+      arubaoss_vlan:
+        vlan_id: 33
+        name: "vlan33"
+        config: "create"
+        command: config_vlan
 
   - name: Display the results
     debug:
