@@ -4,4 +4,4 @@ collections:
   - name: ansible.netcommon
     source: https://galaxy.ansible.com
   - name: arubanetworks.aoscx
-  - name: comminity.network
+  - name: arubanetworks.aos_switch
