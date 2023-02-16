@@ -10,7 +10,7 @@
   tasks:
   - name: Execute show run command
       arubaoss_anycli:
-        command: "show running-config"
+        command: "show version"
     register: results
 
   - name: Display the results
