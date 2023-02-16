@@ -1,12 +1,10 @@
 ---
 - name: Show run command on aruba switch
   hosts: all
-  collections:
-    - arubanetworks.aoscx
   gather_facts: false
   tasks:
   - name: Execute show run command
-    aoscx_command:
+    aruba_command:
       commands:
         - show run
     register: results
