@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
   - name: Execute show run command
-    aoscx_command:
+    arubaoss_command:
       commands:
         - show run
     register: results
