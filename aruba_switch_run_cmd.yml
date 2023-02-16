@@ -1,11 +1,13 @@
 ---
 - name: Show run command on aruba switch
   debugger: on_failed
+  collections:
+    - arubanetworks.aos_switch
   hosts: all
   gather_facts: false
   tasks:
   - name: Execute show run command
-    community.network.aruba_command:
+    arubaoss_command:
       commands:
         - show version
     register: results
