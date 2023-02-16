@@ -5,6 +5,8 @@
     - arubanetworks.aos_switch
   hosts: all
   gather_facts: false
+  vars:
+    ansible_connection: network_cli
   tasks:
   - name: Execute show run command
     arubaoss_command:
