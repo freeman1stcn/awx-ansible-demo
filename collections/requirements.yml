@@ -1,3 +1,7 @@
 ---
 collections:
-- arubanetworks.aoscx
+  # Install Ansible.netcommon from Ansible Galaxy
+  - name: ansible.netcommon
+    source: https://galaxy.ansible.com
+  - name: arubanetworks.aoscx
+  - name: comminity.network
