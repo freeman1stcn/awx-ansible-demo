@@ -9,7 +9,8 @@
     - name: Execute show run on the switch
       aoscx_command:
         commands: ['show run']
+      register: results
 
-  - name: Display the results
-    debug:
-      var: results
+    - name: Display the results
+      debug:
+        var: results
