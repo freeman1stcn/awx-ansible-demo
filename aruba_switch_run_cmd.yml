@@ -5,12 +5,10 @@
     - arubanetworks.aos_switch
   hosts: all
   gather_facts: false
-  vars:
-    ansible_connection: network_cli
   tasks:
   - name: Execute show run command
       arubaoss_anycli:
-        command: ['show run']
+        command: "show run"
     register: results
 
   - name: Display the results
