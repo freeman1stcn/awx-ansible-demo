@@ -6,5 +6,4 @@ collections:
   # - name: arubanetworks.aoscx
   # - name: arubanetworks.aos_switch
   # - name: community.network
-roles:
-  - name: arubanetworks.aoscx_role
+
