@@ -1,5 +1,6 @@
 ---
 - name: Show run command on aruba switch
+  debugger: on_failed
   hosts: all
   collections:
     - arubanetworks.aos_switch
