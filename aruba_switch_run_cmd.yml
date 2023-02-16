@@ -7,11 +7,11 @@
   gather_facts: false
   tasks:
   - name: answer terminal init prompt
-    ansible_terminal_initial_prompt
+    ansible_terminal_initial_prompt:
       - "Press any key to continue"
     ansible_terminal_initial_answer:
       - "\\r"
-      
+
   - name: Execute show run command
     arubaoss_command:
       commands:
