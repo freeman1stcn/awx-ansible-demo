@@ -1,6 +1,8 @@
 ---
 - name: Show run command on aruba switch
   hosts: all
+  collections:
+    - arubanetworks.aos_switch
   gather_facts: false
   tasks:
   - name: Execute show run command
