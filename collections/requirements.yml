@@ -4,6 +4,6 @@ collections:
   # - name: ansible.netcommon
   #   source: https://galaxy.ansible.com
   # - name: arubanetworks.aoscx
-  # - name: arubanetworks.aos_switch
+  - name: arubanetworks.aos_switch
   # - name: community.network
   - ansible.netcommon
