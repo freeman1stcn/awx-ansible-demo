@@ -5,8 +5,6 @@
   gather_facts: false
   collections:
     - arubanetworks.aos_switch
-  roles: 
-    - role: arubanetworks.aoscx_role
   tasks:
     - name: Execute show run on the switch
       arubaoss_command:
