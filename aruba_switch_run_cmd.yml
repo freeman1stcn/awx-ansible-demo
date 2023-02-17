@@ -3,11 +3,13 @@
   debugger: on_failed
   hosts: all
   gather_facts: false
+  collections:
+    - arubanetworks.aos_switch
   roles: 
     - role: arubanetworks.aoscx_role
   tasks:
     - name: Execute show run on the switch
-      aoscx_command:
+      arubaoss_command:
         commands: ['show run']
       register: results
 
