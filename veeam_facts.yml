@@ -1,7 +1,7 @@
   roles:
   - veeam
   tasks:
-  - name: Get Veeam Facts
+  - name: Get Veeam Facts test
     veeam_connection_facts:
     register: my_facts
   - name: Debug Veeam Facts
