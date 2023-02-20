@@ -13,4 +13,4 @@
 
     - name: Display the results
       debug:
-        var: "{{ results.split('\n') }}"
+        var: results["stdout"]
