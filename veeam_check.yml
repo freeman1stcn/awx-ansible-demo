@@ -1,5 +1,6 @@
 ---
 - name: test veeam
+  hosts: veeam
   roles:
     - veeam
   tasks:
