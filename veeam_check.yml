@@ -1,9 +1,11 @@
+---
+- name: test veeam
   roles:
-  - veeam
+    - veeam
   tasks:
-  - name: Get Veeam Facts test
-    veeam_connection_facts:
-    register: my_facts
-  - name: Debug Veeam Facts
+    - name: Get Veeam Facts test
+      veeam_connection_facts:
+      register: my_facts
+    - name: Debug Veeam Facts
     debug:
-        var: my_facts
+      var: my_facts
