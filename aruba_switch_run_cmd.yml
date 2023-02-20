@@ -8,7 +8,7 @@
   tasks:
     - name: Execute show run on the switch
       arubaoss_command:
-        commands: ['show run']
+        commands: ['show trunk']
       register: results
 
     - name: Display the results
