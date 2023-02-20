@@ -10,19 +10,3 @@
     - name: Debug Veeam Facts
       debug:
         var: my_facts
-# ---
-# - name: Show run command on aruba switch
-#   debugger: on_failed
-#   hosts: N8
-#   gather_facts: false
-#   collections:
-#     - arubanetworks.aos_switch
-#   tasks:
-#     - name: Execute show run on the switch
-#       arubaoss_command:
-#         commands: ['show trunk']
-#       register: results
-
-#     - name: Display the results
-#       debug:
-#         var: results
