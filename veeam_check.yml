@@ -1,27 +1,27 @@
-# ---
-# - name: test veeam
-#   roles:
-#     - veeam
-#   tasks:
-#     - name: Get Veeam Facts test
-#       veeam_connection_facts:
-#       register: my_facts
-#     - name: Debug Veeam Facts
-#     debug:
-#       var: my_facts
 ---
-- name: Show run command on aruba switch
-  debugger: on_failed
-  hosts: N8
-  gather_facts: false
-  collections:
-    - arubanetworks.aos_switch
+- name: test veeam
+  roles:
+    - veeam
   tasks:
-    - name: Execute show run on the switch
-      arubaoss_command:
-        commands: ['show trunk']
-      register: results
-
-    - name: Display the results
+    - name: Get Veeam Facts test
+      veeam_connection_facts:
+      register: my_facts
+    - name: Debug Veeam Facts
       debug:
-        var: results
+        var: my_facts
+# ---
+# - name: Show run command on aruba switch
+#   debugger: on_failed
+#   hosts: N8
+#   gather_facts: false
+#   collections:
+#     - arubanetworks.aos_switch
+#   tasks:
+#     - name: Execute show run on the switch
+#       arubaoss_command:
+#         commands: ['show trunk']
+#       register: results
+
+#     - name: Display the results
+#       debug:
+#         var: results
