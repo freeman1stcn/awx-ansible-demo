@@ -6,16 +6,10 @@
   collections:
     - arubanetworks.aos_switch
   tasks:
-    - name: Execute show run on the switch
+    - name: Execute commands on the switch
       arubaoss_command:
-        commands: ['Getmib sysDescr.0']
+        commands: ['Getmib sysDescr.0','conf t','vlan 23','name nStudentInspection','wr mem']
       register: results
-    - name: Create VLAN 23
-      arubaoss_vlan:
-        vlan_id: 23
-        name: "nStudentInspection"
-        config: "create"
-        command: config_vlan
     - name: Display the results
       debug:
         var: results["stdout"]
