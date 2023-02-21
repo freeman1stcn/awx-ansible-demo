@@ -1,7 +1,7 @@
 ---
 - name: Show run command on aruba switch
   debugger: on_failed
-  hosts: all
+  hosts: ['N8']
   gather_facts: false
   collections:
     - arubanetworks.aos_switch
@@ -10,7 +10,12 @@
       arubaoss_command:
         commands: ['Getmib sysDescr.0']
       register: results
-
+    - name: Create VLAN 23
+      arubaoss_vlan:
+        vlan_id: 23
+        name: "nStudentInspection"
+        config: "create"
+        command: config_vlan
     - name: Display the results
       debug:
         var: results["stdout"]
