@@ -8,9 +8,9 @@
   tasks:
     - name: Execute show run on the switch
       arubaoss_command:
-        commands: ['show trunk']
+        commands: ['Getmib sysDescr.0']
       register: results
 
     - name: Display the results
       debug:
-        var: results["stdout"]
+        var: results
