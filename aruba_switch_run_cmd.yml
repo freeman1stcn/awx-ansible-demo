@@ -8,7 +8,7 @@
   tasks:
     - name: Execute commands on the switch
       arubaoss_command:
-        commands: ['Getmib sysDescr.0','conf t','vlan 23','name nStudentInspection','wr mem']
+        commands: ['conf t','vlan 23','name nStudentInspection','sh run vlan 18 | i tagged']
       register: results
     - name: Display the results
       debug:
