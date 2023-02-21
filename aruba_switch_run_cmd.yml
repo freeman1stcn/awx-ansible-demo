@@ -9,7 +9,7 @@
     - name: Execute commands on the switch
       arubaoss_command:
         commands: ['conf t','vlan 23','name nStudentInspection','sh run vlan 18 | i tagged']
-      register: results
+      register: results[3]
     - name: Display the results
       debug:
         var: results["stdout"]
