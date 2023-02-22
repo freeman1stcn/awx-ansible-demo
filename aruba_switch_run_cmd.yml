@@ -16,14 +16,14 @@
         commands: ['sh run vlan 18 | i tagged']
       register: vlan18Tagged
 
-    - name: find the tagged port/trunk
-      set_fact:
-        tagged_ports: "{{ vlan18Tagged  | regex_findall(' i tagged   (.*)') }}"
+    # - name: find the tagged port/trunk
+    #   set_fact:
+    #     tagged_ports: "{{ vlan18Tagged  | regex_findall(' i tagged   (.*)') }}"
       # register: tagged_ports
 
     - name: Display the results
       debug:
-        var: tagged_ports[0]
+        var: vlan18Tagged
 
     # - name: Display the results
     #   debug:
