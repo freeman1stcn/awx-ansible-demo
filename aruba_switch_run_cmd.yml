@@ -8,12 +8,19 @@
   tasks:
     - name: Execute commands on the switch
       arubaoss_command:
-        commands: ['conf t','vlan 23','name nStudentInspection','sh run vlan 18 | i tagged']
-      register: results
+        commands: ['conf t','vlan 23','name nStudentInspection']
+      register: setVlanResult
+    
+    - name: find student wifi vlan setting
+      arubaoss_command:
+        commands: ['sh run vlan 18 | i tagged']
+      register: vlan18Tagged
+
     - name: find the tagged port/trunk
       set_fact:
-        tagged_ports: "{{ results["stdout"][3]   | regex_search('sh run vlan 18 | i tagged   (.*)') }}"
+        tagged_ports: "{{ vlan18Tagged  | regex_search('sh run vlan 18 | i tagged   (.*)') }}"
       register: tagged_ports
+      
     - name: Display the results
       debug:
         var: tagged_ports
