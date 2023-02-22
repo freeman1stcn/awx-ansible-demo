@@ -23,7 +23,7 @@
 
     - name: Display the results
       debug:
-        var: vlan18Tagged
+        var: vlan18Tagged.stdout
 
     # - name: Display the results
     #   debug:
