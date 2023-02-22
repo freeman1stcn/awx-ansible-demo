@@ -18,7 +18,7 @@
 
     - name: find the tagged port/trunk
       set_fact:
-        tagged_ports: "{{ vlan18Tagged.stdout[0]  | regex_findall(' i tagged   (.*)') }}"
+        tagged_ports: "{{ vlan18Tagged.stdout[0]  | regex_findall(' i tagged   (.*)', , multiline=True) }}"
 
     - name: Display the results
       debug:
