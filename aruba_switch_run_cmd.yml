@@ -23,7 +23,7 @@
 
     - name: Display the results
       debug:
-        msg: tagged_port[0]
+        msg: tagged_port
 
     # - name: Display the results
     #   debug:
