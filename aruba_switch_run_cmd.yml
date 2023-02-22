@@ -5,32 +5,40 @@
   gather_facts: false
   collections:
     - arubanetworks.aos_switch
-  tasks:
-    - name: Create Vlan23 on the switch
-      arubaoss_command:
-        commands: ['conf t', 'vlan 23', 'name nStudentInspection', 'wr mem']
-      register: setVlanResult
+  # tasks:
+  #   - name: Create Vlan23 on the switch
+  #     arubaoss_command:
+  #       commands: ['conf t', 'vlan 23', 'name nStudentInspection', 'wr mem']
+  #     register: setVlanResult
     
-    - name: find student wifi vlan setting
-      arubaoss_command:
-        commands: ['sh run vlan 18 | i tagged']
-      register: vlan18Tagged 
+    # - name: find student wifi vlan setting
+    #   arubaoss_command:
+    #     commands: ['sh run vlan 18 | i tagged']
+    #   register: vlan18Tagged 
 
-    - name: format output string
-      set_fact:
-        output_vlan18Tagged: "{{ vlan18Tagged.stdout[0] | replace('\n', '')}}"
+    # - name: format output string
+    #   set_fact:
+    #     output_vlan18Tagged: "{{ vlan18Tagged.stdout[0] | replace('\n', '')}}"
 
-    - name: find the tagged port/trunk
-      set_fact:
-        tagged_ports: "{{ output_vlan18Tagged | regex_findall(' i tagged   (.*)', multiline=True)}}"
+    # - name: find the tagged port/trunk
+    #   set_fact:
+    #     tagged_ports: "{{ output_vlan18Tagged | regex_findall(' i tagged   (.*)', multiline=True)}}"
 
-    - name: Display the results
-      debug:
-        var: output_vlan18Tagged
+    # - name: Display the results
+    #   debug:
+    #     var: output_vlan18Tagged
     
-    - name: Add Vlan23 to the AP ports and trunks
-      arubaoss_command:
-        commands: ['conf t', 'vlan 23', '{{ tagged_ports[0] }}', 'wr mem']
+    # - name: Add Vlan23 to the AP ports and trunks
+    #   arubaoss_command:
+    #     commands: ['conf t', 'vlan 23', '{{ tagged_ports[0] }}', 'wr mem']
 
 
  
+    - name: find student wifi vlan setting
+      arubaoss_command:
+        commands: ['sh run vlan 23 | i tagged']
+      register: vlan18Tagged 
+
+    - name: Display the results
+      debug:
+        var: output_vlan23Tagged
