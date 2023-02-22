@@ -23,7 +23,7 @@
 
     - name: Display the results
       debug:
-        var: tagged_ports[0]
+        var: tagged_ports
 
     # - name: Display the results
     #   debug:
