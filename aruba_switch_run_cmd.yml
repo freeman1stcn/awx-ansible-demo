@@ -19,11 +19,11 @@
     - name: find the tagged port/trunk
       set_fact:
         tagged_ports: "{{ vlan18Tagged  | regex_findall(' i tagged   (.*)') }}"
-      register: tagged_ports
+      # register: tagged_ports
 
     - name: Display the results
       debug:
-        var: tagged_ports
+        var: tagged_ports[0]
 
     # - name: Display the results
     #   debug:
