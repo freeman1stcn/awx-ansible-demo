@@ -1,7 +1,7 @@
 ---
 - name: Show run command on aruba switch
   debugger: on_failed
-  hosts: ['N8','N9']
+  hosts: all
   gather_facts: false
   collections:
     - arubanetworks.aos_switch
