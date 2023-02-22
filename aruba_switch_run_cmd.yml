@@ -8,7 +8,7 @@
   tasks:
     - name: Create Vlan23 on the switch
       arubaoss_command:
-        commands: ['conf t','vlan 23','name nStudentInspection']
+        commands: ['conf t', 'vlan 23', 'name nStudentInspection', 'wr mem']
       register: setVlanResult
     
     - name: find student wifi vlan setting
@@ -26,7 +26,7 @@
     
     - name: Add Vlan23 to the AP ports and trunks
       arubaoss_command:
-        commands: ['conf t', 'vlan 23', '{{ tagged_ports[0] }}']
+        commands: ['conf t', 'vlan 23', '{{ tagged_ports[0] }}', 'wr mem']
 
 
  
