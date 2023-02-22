@@ -18,7 +18,7 @@
 
     - name: format output string
       set_fact:
-        output_vlan18Tagged: {{ vlan18Tagged.stdout[0] | replace('\n', '')}}
+        output_vlan18Tagged: "{{ vlan18Tagged.stdout[0] | replace('\n', '')}}"
 
     # - name: find the tagged port/trunk
     #   set_fact:
