@@ -10,10 +10,13 @@
       arubaoss_command:
         commands: ['conf t','vlan 23','name nStudentInspection','sh run vlan 18 | i tagged']
       register: results
-    - name: find the tagged port/trunk
-      set_fact:
-        tagged_ports: "{{ results["stdout"][3]   | regex_search('sh run vlan 18 | i tagged   (.*)') }}"
-      register: tagged_ports
+    # - name: find the tagged port/trunk
+    #   set_fact:
+    #     tagged_ports: "{{ results["stdout"][3]   | regex_search('sh run vlan 18 | i tagged   (.*)') }}"
+    #   register: tagged_ports
+    # - name: Display the results
+    #   debug:
+
     - name: Display the results
       debug:
-        var: tagged_ports
+        var: results["stdout"]
