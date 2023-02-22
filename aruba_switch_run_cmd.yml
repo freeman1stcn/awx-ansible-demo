@@ -16,13 +16,17 @@
         commands: ['sh run vlan 18 | i tagged']
       register: vlan18Tagged 
 
+    - name: format output string
+      set_fact:
+        output_vlan18Tagged: {{ vlan18Tagged.stdout[0] | replace('\n', '')}}
+
     # - name: find the tagged port/trunk
     #   set_fact:
     #     tagged_ports: "{{ vlan18Tagged.stdout[0]  | regex_findall(' i tagged   (.*)', multiline=True)}}"
 
     - name: Display the results
       debug:
-        var: vlan18Tagged
+        var: output_vlan18Tagged
     
     # - name: Add Vlan23 to the AP ports and trunks
     #   arubaoss_command:
