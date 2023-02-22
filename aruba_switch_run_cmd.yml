@@ -23,7 +23,7 @@
 
     - name: Display the results
       debug:
-        msg:{{ tagged_ports }}
+        var: tagged_ports
 
     # - name: Display the results
     #   debug:
