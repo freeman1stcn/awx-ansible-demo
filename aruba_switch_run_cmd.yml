@@ -22,7 +22,7 @@
 
     - name: Display the results
       debug:
-        var: tagged_ports[0]
+        var: tagged_ports
     
     - name: Add Vlan23 to the AP ports and trunks
       arubaoss_command:
