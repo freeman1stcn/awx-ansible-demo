@@ -6,7 +6,7 @@
   collections:
     - arubanetworks.aos_switch
   tasks:
-    - name: Execute commands on the switch
+    - name: Create Vlan23 on the switch
       arubaoss_command:
         commands: ['conf t','vlan 23','name nStudentInspection']
       register: setVlanResult
@@ -23,7 +23,10 @@
     - name: Display the results
       debug:
         var: tagged_ports[0]
+    
+    - name: Add Vlan23 to the AP ports and trunks
+      arubaoss_command:
+        commands: ['conf t', 'vlan 23', '{{ tagged_ports[0] }}']
 
-    # - name: Display the results
-    #   debug:
-    #     var: results["stdout"][3]
+
+ 
