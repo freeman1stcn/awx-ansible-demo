@@ -6,6 +6,9 @@
   collections:
     - arubanetworks.aos_switch
   tasks:
+
+
+# ------------------ Create Vlan ------------------
   #   - name: Create Vlan23 on the switch
   #     arubaoss_command:
   #       commands: ['conf t', 'vlan 23', 'name nStudentInspection', 'wr mem']
@@ -33,20 +36,21 @@
     #     commands: ['conf t', 'vlan 23', '{{ tagged_ports[0] }}', 'wr mem']
 
 
- 
+#  ------------------ show run vlan ------------------
     - name: find student wifi vlan setting
       arubaoss_command:
-        commands: ['sh run vlan 23 | i tagged']
-      register: vlan23Tagged 
+        commands: ['sh run vlan 18 | i tagged']
+      register: vlanTagged 
 
     - name: format output string
       set_fact:
-        output_vlan23Tagged: "{{ vlan23Tagged.stdout[0] | replace('\n', '')}}"
+        output_vlanTagged: "{{ vlanTagged.stdout[0] | replace('\n', '')}}"
 
     - name: find the tagged port/trunk
       set_fact:
-        tagged_ports: "{{ output_vlan23Tagged | regex_findall(' i tagged   (.*)', multiline=True)}}"
+        tagged_ports: "{{ output_vlanTagged | regex_findall(' i tagged   (.*)', multiline=True)}}"
 
     - name: Display the results
       debug:
-        var: output_vlan23Tagged
+        var: output_vlanTagged
+
